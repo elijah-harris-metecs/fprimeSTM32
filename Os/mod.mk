@@ -32,6 +32,46 @@ HDR = 			Queue.hpp \
 				LocklessQueue.hpp \
 				ValidatedFile.hpp
 
+SRC_FREERTOS_SIM =  FreeRTOS/assert.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/portable/GCC/POSIX/port.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/event_groups.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/list.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/queue.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/tasks.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/timers.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/portable/MemMang/heap_2.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/croutine.c \
+                    FreeRTOS/FreeRTOS-Sim/Source/stream_buffer.c \
+                    FreeRTOS/Queue.cpp \
+                    FreeRTOS/Mutex.cpp \
+                    FreeRTOS/Task.cpp \
+                    FreeRTOS/IntervalTimer.cpp \
+                    FreeRTOS/InterruptLock.cpp \
+                    FreeRTOS/WatchdogTimer.cpp \
+                    LogPrintf.cpp \
+                    Linux/FileSystem.cpp \
+                    Linux/File.cpp
+                    # FreeRTOS/TraceRecorder/trcKernelPort.c \
+                    # FreeRTOS/TraceRecorder/streamports/File/trcStreamingPort.c \
+                    # FreeRTOS/TraceRecorder/trcStreamingRecorder.c \
+                    # FreeRTOS/TraceRecorder/trcSnapshotRecorder.c \
+
+SRC_CORTEX_M7 :=    $(shell find ../M7/HAL/source -name '*.c') \
+					$(shell find ../M7/HAL/source -name '*.asm') \
+                    FreeRTOS/Queue.cpp \
+                    FreeRTOS/Mutex.cpp \
+                    FreeRTOS/Task.cpp \
+                    FreeRTOS/IntervalTimer.cpp \
+                    FreeRTOS/InterruptLock.cpp \
+                    FreeRTOS/WatchdogTimer.cpp \
+                    LogPrintf.cpp \
+                    Linux/FileSystem.cpp \
+                    Linux/File.cpp
+                    # FreeRTOS/TraceRecorder/trcKernelPort.c \
+                    # FreeRTOS/TraceRecorder/streamports/File/trcStreamingPort.c \
+                    # FreeRTOS/TraceRecorder/trcStreamingRecorder.c \
+                    # FreeRTOS/TraceRecorder/trcSnapshotRecorder.c \
+
 SRC_LINUX=      Posix/IPCQueue.cpp \
                	Pthreads/Queue.cpp \
                	Pthreads/BufferQueueCommon.cpp \
